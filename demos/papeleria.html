@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Papelería El Lápiz Feliz · Zapopan</title>
+<meta name="description" content="Papelería, copias, impresiones y listas escolares en Zapopan. Cotiza tus impresiones y aparta por WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#fffdf6; --ink:#1d2340; --muted:#5d6380; --line:#ebe6d6;
+  --yellow:#ffd23f; --blue:#3d5af1; --pink:#ff6b9a; --green:#22b07d; --soft:#f4f6ff;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Nunito,system-ui,sans-serif}
+a{color:inherit}
+.wrap{max-width:1100px;margin:0 auto;padding:0 16px}
+h1,h2,h3{font-family:"Baloo 2",Nunito,sans-serif;line-height:1.05;margin:0}
+
+.demo{background:var(--ink);color:#e8ebff;font-size:13px;text-align:center;padding:8px 16px}
+.demo a{color:var(--yellow);font-weight:800}
+
+header{position:sticky;top:0;z-index:20;background:var(--bg);border-bottom:3px solid var(--ink)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:66px;gap:12px}
+.brand{display:flex;align-items:center;gap:10px;font-family:"Baloo 2";font-weight:800;font-size:22px;text-decoration:none}
+.brand svg{width:38px;height:38px}
+.nav{display:flex;gap:20px;align-items:center;font-weight:600}
+.nav a{text-decoration:none}
+.nav a:hover{color:var(--blue)}
+.pill{display:inline-flex;align-items:center;gap:6px;border:3px solid var(--ink);background:var(--yellow);border-radius:12px;padding:6px 14px;font:800 15px Nunito;cursor:pointer;box-shadow:3px 3px 0 var(--ink);color:var(--ink)}
+.pill b{background:var(--ink);color:#fff;border-radius:99px;padding:0 7px;margin-left:4px;font-size:12px}
+@media (max-width:760px){.nav a{display:none}}
+
+.hero{padding:56px 0 40px;display:grid;grid-template-columns:1.1fr .9fr;gap:36px;align-items:center}
+.sticker{display:inline-block;background:var(--pink);color:#fff;font-weight:800;padding:4px 12px;border-radius:8px;transform:rotate(-2deg);font-size:14px}
+.hero h1{font-size:clamp(42px,7vw,76px);margin:16px 0}
+.hero h1 span{background:linear-gradient(transparent 60%,var(--yellow) 60%)}
+.hero p{font-size:19px;color:var(--muted);margin:0 0 26px;max-width:44ch}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;border:3px solid var(--ink);border-radius:14px;padding:12px 20px;font:800 16px Nunito;text-decoration:none;cursor:pointer;box-shadow:4px 4px 0 var(--ink);background:#fff;color:var(--ink);transition:transform .1s,box-shadow .1s}
+.btn:hover{transform:translate(-1px,-1px);box-shadow:5px 5px 0 var(--ink)}
+.btn:active{transform:translate(3px,3px);box-shadow:1px 1px 0 var(--ink)}
+.btn.blue{background:var(--blue);color:#fff}
+.btn.green{background:var(--green);color:#fff}
+.chips{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px;font-weight:600;font-size:14px}
+.chips span{display:inline-flex;align-items:center;gap:6px;background:var(--soft);border-radius:99px;padding:5px 12px}
+.status{display:inline-flex;align-items:center;gap:8px;font-weight:800;font-size:14px;margin-left:8px}
+.dot{width:10px;height:10px;border-radius:50%;background:var(--green)}
+.dot.closed{background:#e0452b}
+.art{position:relative;aspect-ratio:1;background:var(--blue);border:3px solid var(--ink);border-radius:28px;box-shadow:8px 8px 0 var(--ink);overflow:hidden}
+.art svg{position:absolute;inset:0;width:100%;height:100%}
+.art small{position:absolute;bottom:12px;left:12px;background:#fff;border:2px solid var(--ink);border-radius:8px;padding:2px 8px;font-weight:700;font-size:12px}
+@media (max-width:820px){.hero{grid-template-columns:1fr}.art{max-width:360px;width:100%;margin:0 auto}}
+
+section{padding:56px 0;scroll-margin-top:70px}
+.head{display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap;margin-bottom:26px}
+h2{font-size:clamp(32px,5vw,48px)}
+.sub{color:var(--muted);margin:6px 0 0;max-width:56ch}
+
+/* services */
+.services{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.svc{border:3px solid var(--ink);border-radius:18px;padding:20px;background:#fff}
+.svc .ic{font-size:34px;line-height:1}
+.feat{display:flex;gap:8px;align-items:center;margin:4px 0}
+.svc h3{font-size:22px;margin:8px 0 4px}
+.svc p{margin:0;color:var(--muted);font-size:15px}
+.svc:nth-child(1){background:#fff6cf}.svc:nth-child(2){background:#e7ebff}.svc:nth-child(3){background:#ffe3ec}.svc:nth-child(4){background:#dff6ec}
+@media (max-width:900px){.services{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:520px){.services{grid-template-columns:1fr}}
+
+/* quoter */
+.quoter{display:grid;grid-template-columns:1.2fr .8fr;gap:0;border:3px solid var(--ink);border-radius:24px;overflow:hidden;box-shadow:8px 8px 0 var(--ink);background:#fff}
+.q-form{padding:28px}
+.q-out{background:var(--yellow);padding:28px;border-left:3px solid var(--ink);display:flex;flex-direction:column}
+.field{margin-bottom:18px}
+.field>label{display:block;font-weight:800;margin-bottom:8px}
+.seg{display:flex;flex-wrap:wrap;gap:8px}
+.seg input{position:absolute;opacity:0;pointer-events:none}
+.seg label{border:2px solid var(--ink);border-radius:10px;padding:7px 14px;cursor:pointer;font-weight:700;background:#fff;font-size:15px}
+.seg input:checked+label{background:var(--ink);color:#fff}
+.seg input:focus-visible+label{outline:3px solid var(--blue);outline-offset:2px}
+.num{display:flex;align-items:center;gap:10px}
+.num input{width:110px;border:2px solid var(--ink);border-radius:10px;padding:9px 12px;font:800 18px Nunito;text-align:center}
+.num button{width:40px;height:40px;border:2px solid var(--ink);border-radius:10px;background:#fff;font:800 20px Nunito;cursor:pointer}
+.check{display:flex;align-items:center;gap:10px;font-weight:600;margin-bottom:8px;cursor:pointer}
+.check input{width:20px;height:20px;accent-color:var(--blue)}
+.q-out h3{font-size:24px}
+.breakdown{margin:16px 0;flex:1;font-size:15px}
+.breakdown div{display:flex;justify-content:space-between;padding:6px 0;border-bottom:2px dashed rgba(29,35,64,.25)}
+.big{font-family:"Baloo 2";font-size:54px;font-weight:800;line-height:1}
+.q-out small{display:block;margin:6px 0 18px;font-weight:600}
+@media (max-width:820px){.quoter{grid-template-columns:1fr}.q-out{border-left:0;border-top:3px solid var(--ink)}}
+
+/* catalog */
+.search{border:3px solid var(--ink);border-radius:14px;padding:11px 16px;font:600 16px Nunito;width:min(320px,100%)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px}
+.prod{border:2px solid var(--line);border-radius:18px;padding:16px;background:#fff;display:flex;flex-direction:column}
+.prod .em{height:90px;border-radius:12px;background:var(--soft);display:grid;place-items:center;font-size:40px;margin-bottom:12px;color:var(--blue)}
+.prod h3{font-family:Nunito;font-size:16px;font-weight:800;margin:0}
+.prod p{margin:2px 0 10px;color:var(--muted);font-size:13px;flex:1}
+.prod .row{display:flex;justify-content:space-between;align-items:center}
+.prod .price{font-weight:800;font-size:18px}
+.plus{width:38px;height:38px;border-radius:10px;border:2px solid var(--ink);background:var(--yellow);font:800 20px Nunito;cursor:pointer}
+
+/* school lists */
+.lists{background:var(--pink);color:#fff;border:3px solid var(--ink);border-radius:24px;padding:36px;display:grid;grid-template-columns:1.3fr 1fr;gap:24px;align-items:center;box-shadow:8px 8px 0 var(--ink)}
+.lists h2{color:#fff}
+.lists ol{margin:14px 0 0;padding-left:20px;font-weight:600}
+.lists li{margin:6px 0}
+@media (max-width:820px){.lists{grid-template-columns:1fr}}
+
+.info{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.card{border:3px solid var(--ink);border-radius:20px;padding:24px;background:#fff}
+.card h3{font-size:26px;margin-bottom:10px}
+.hours div{display:flex;justify-content:space-between;padding:6px 0;border-bottom:2px dashed var(--line)}
+.hours .today{color:var(--blue);font-weight:800}
+iframe{width:100%;height:100%;min-height:260px;border:0;border-radius:12px}
+@media (max-width:820px){.info{grid-template-columns:1fr}}
+
+footer{border-top:3px solid var(--ink);padding:30px 0;margin-top:40px;font-weight:600}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+
+/* cart drawer */
+.backdrop{position:fixed;inset:0;background:rgba(29,35,64,.5);opacity:0;pointer-events:none;transition:.2s;z-index:40}
+.drawer{position:fixed;top:0;right:0;height:100%;width:min(420px,100%);background:var(--bg);border-left:3px solid var(--ink);z-index:50;transform:translateX(105%);transition:.25s;display:flex;flex-direction:column}
+body.open .backdrop{opacity:1;pointer-events:auto}
+body.open .drawer{transform:none}
+.d-head,.d-foot{padding:18px 20px;border-bottom:3px solid var(--ink)}
+.d-foot{border-bottom:0;border-top:3px solid var(--ink)}
+.d-head{display:flex;justify-content:space-between;align-items:center}
+.d-body{flex:1;overflow:auto;padding:8px 20px}
+.x{background:none;border:0;font-size:30px;cursor:pointer;color:var(--ink)}
+.line{display:flex;gap:10px;align-items:center;padding:10px 0;border-bottom:2px dashed var(--line)}
+.line .n{flex:1;font-weight:700}
+.line small{display:block;color:var(--muted);font-weight:600}
+.qty{display:flex;gap:8px;align-items:center;font-weight:800}
+.qty button{width:28px;height:28px;border-radius:8px;border:2px solid var(--ink);background:#fff;cursor:pointer;font-weight:800}
+.empty{text-align:center;color:var(--muted);padding:40px 0}
+.total{display:flex;justify-content:space-between;font:800 22px Nunito;margin-bottom:12px}
+.d-foot .btn{width:100%;justify-content:center}
+.d-foot .btn:disabled{opacity:.4;cursor:not-allowed}
+.d-body label{display:block;font-weight:800;margin:14px 0 6px}
+.d-body input,.d-body select{width:100%;border:2px solid var(--ink);border-radius:10px;padding:9px 12px;font:600 15px Nunito;background:#fff}
+.toast{position:fixed;bottom:22px;left:50%;transform:translate(-50%,120px);background:var(--ink);color:#fff;font-weight:700;padding:10px 18px;border-radius:12px;transition:.25s;z-index:60}
+.toast.show{transform:translate(-50%,0)}
+</style>
+<script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+<style>.lucide{width:1em;height:1em;flex:none;vertical-align:-.125em}</style>
+</head>
+<body>
+
+<div class="demo">Página de ejemplo · El negocio, los precios y las reseñas son inventados · Diseño de <a href="../index.html#demos">Mario Gaytán</a> · <a href="../index.html#contacto">¿Quieres una así para tu negocio?</a></div>
+
+<header>
+  <div class="wrap">
+    <a class="brand" href="#">
+      <svg viewBox="0 0 40 40"><rect x="2" y="2" width="36" height="36" rx="10" fill="#ffd23f" stroke="#1d2340" stroke-width="3"/><path d="M12 28 26 14l4 4-14 14h-4z" fill="#ff6b9a" stroke="#1d2340" stroke-width="2.5" stroke-linejoin="round"/><circle cx="16" cy="15" r="1.6" fill="#1d2340"/><circle cx="23" cy="25" r="1.6" fill="#1d2340"/></svg>
+      El Lápiz Feliz
+    </a>
+    <nav class="nav">
+      <a href="#servicios">Servicios</a><a href="#cotizador">Cotizador</a><a href="#productos">Productos</a><a href="#listas">Listas escolares</a>
+      <button class="pill" id="open-cart"><i data-lucide="shopping-cart"></i> Apartado <b id="count">0</b></button>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap hero">
+    <div>
+      <span class="sticker">¡Regreso a clases!</span><span class="status"><span class="dot" id="dot"></span><span id="status-text"></span></span>
+      <h1>Todo para la escuela y la oficina, <span>a una cuadra</span>.</h1>
+      <p>Copias, impresiones, engargolados y útiles. Aquí abajo ves cuánto te sale tu impresión, nos mandas el archivo por WhatsApp y pasas por él cuando esté.</p>
+      <div class="btns">
+        <a class="btn blue" href="#cotizador"><i data-lucide="printer"></i> Cotizar impresiones</a>
+        <a class="btn" href="#listas"><i data-lucide="clipboard-list"></i> Surtir mi lista</a>
+      </div>
+      <div class="chips"><span><i data-lucide="check"></i> Impresiones desde $1</span><span><i data-lucide="check"></i> Listas surtidas en 24 h</span><span><i data-lucide="check"></i> Pago con tarjeta</span></div>
+    </div>
+    <div class="art" aria-hidden="true">
+      <svg viewBox="0 0 300 300">
+        <rect x="60" y="50" width="130" height="170" rx="8" fill="#fff" stroke="#1d2340" stroke-width="4" transform="rotate(-8 125 135)"/>
+        <g stroke="#3d5af1" stroke-width="4" opacity=".35" transform="rotate(-8 125 135)"><path d="M80 90h90M80 115h90M80 140h90M80 165h60"/></g>
+        <rect x="160" y="40" width="22" height="190" rx="4" fill="#ffd23f" stroke="#1d2340" stroke-width="4" transform="rotate(28 171 135)"/>
+        <path d="M218 214 229 236 207 233z" fill="#ff6b9a" stroke="#1d2340" stroke-width="3" transform="rotate(0)"/>
+        <circle cx="230" cy="80" r="26" fill="#ff6b9a" stroke="#1d2340" stroke-width="4"/>
+        <path d="M40 250h90" stroke="#ffd23f" stroke-width="12" stroke-linecap="round"/>
+        <rect x="190" y="190" width="70" height="60" rx="10" fill="#22b07d" stroke="#1d2340" stroke-width="4"/>
+        <path d="M205 210h40M205 228h28" stroke="#fff" stroke-width="5" stroke-linecap="round"/>
+      </svg>
+      <small><i data-lucide="camera"></i> Aquí va la foto de tu local</small>
+    </div>
+  </div>
+
+  <section id="servicios">
+    <div class="wrap">
+      <div class="head"><div><h2>Servicios</h2><p class="sub">Casi todo te lo hacemos al momento. Si es mucho trabajo, te avisamos por WhatsApp cuando esté.</p></div></div>
+      <div class="services">
+        <div class="svc"><div class="ic"><i data-lucide="printer"></i></div><h3>Copias e impresiones</h3><p>Blanco y negro o color, carta y oficio, desde USB, correo o WhatsApp.</p></div>
+        <div class="svc"><div class="ic"><i data-lucide="book-open"></i></div><h3>Engargolado y enmicado</h3><p>Engargolado de plástico o metal, enmicado tamaño credencial y carta.</p></div>
+        <div class="svc"><div class="ic"><i data-lucide="backpack"></i></div><h3>Listas escolares</h3><p>Mándanos foto de tu lista y te la entregamos completa y forrada.</p></div>
+        <div class="svc"><div class="ic"><i data-lucide="file-text"></i></div><h3>Trámites en línea</h3><p>CURP, actas, RFC y constancias impresas al momento.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="cotizador">
+    <div class="wrap">
+      <div class="head"><div><h2>Cotiza tus impresiones</h2><p class="sub">Escoge las opciones y te sale el precio. Si te parece bien, nos mandas los archivos por WhatsApp.</p></div></div>
+      <div class="quoter">
+        <form class="q-form" id="q" onsubmit="return false">
+          <div class="field"><label>Tipo de impresión</label>
+            <div class="seg">
+              <input type="radio" name="tipo" id="t1" value="bn" checked><label for="t1">Blanco y negro</label>
+              <input type="radio" name="tipo" id="t2" value="color"><label for="t2">Color</label>
+              <input type="radio" name="tipo" id="t3" value="foto"><label for="t3">Foto / papel couché</label>
+            </div></div>
+          <div class="field"><label>Tamaño</label>
+            <div class="seg">
+              <input type="radio" name="tam" id="s1" value="carta" checked><label for="s1">Carta</label>
+              <input type="radio" name="tam" id="s2" value="oficio"><label for="s2">Oficio</label>
+              <input type="radio" name="tam" id="s3" value="doble"><label for="s3">Doble carta</label>
+            </div></div>
+          <div class="field"><label for="pages">Número de hojas</label>
+            <div class="num"><button type="button" data-d="-10">−</button><input id="pages" type="number" min="1" value="20" inputmode="numeric"><button type="button" data-d="10">+</button></div></div>
+          <div class="field"><label for="copies">Juegos (copias del documento)</label>
+            <div class="num"><button type="button" data-c="-1">−</button><input id="copies" type="number" min="1" value="1" inputmode="numeric"><button type="button" data-c="1">+</button></div></div>
+          <div class="field"><label>Acabado</label>
+            <label class="check"><input type="checkbox" id="duplex"> Por ambos lados (doble cara)</label>
+            <label class="check"><input type="checkbox" id="engar"> Engargolado (+$35 por juego)</label>
+            <label class="check"><input type="checkbox" id="micas"> Portada enmicada (+$15 por juego)</label>
+          </div>
+        </form>
+        <div class="q-out">
+          <h3>Tu cotización</h3>
+          <div class="breakdown" id="breakdown"></div>
+          <div class="big" id="qtotal">$0</div>
+          <small id="qnote">Precio por hoja: $1.00 · Mayoreo desde 100 hojas</small>
+          <button class="btn green" id="q-send">Mandar archivos por WhatsApp</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="productos">
+    <div class="wrap">
+      <div class="head"><div><h2>Productos</h2><p class="sub">Apártalo por WhatsApp y pasa a recogerlo.</p></div><input class="search" id="search" placeholder="Buscar: cuaderno, colores…" aria-label="Buscar productos"></div>
+      <div class="grid" id="grid"></div>
+    </div>
+  </section>
+
+  <section id="listas">
+    <div class="wrap">
+      <div class="lists">
+        <div>
+          <h2>¿Lista escolar? Nosotros la surtimos.</h2>
+          <ol>
+            <li>Toma foto a la lista de útiles.</li>
+            <li>Mándala por WhatsApp con el nombre del alumno.</li>
+            <li>Te mandamos la cotización en menos de 2 horas.</li>
+            <li>Pasa por ella lista y forrada en 24 horas.</li>
+          </ol>
+        </div>
+        <div style="text-align:center">
+          <div style="font-size:90px;line-height:1"><i data-lucide="backpack"></i></div>
+          <button class="btn" id="list-btn" style="margin-top:12px"><i data-lucide="camera"></i> Enviar mi lista</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap info">
+      <div class="card">
+        <h3>Horario</h3>
+        <div class="hours" id="hours"></div>
+        <p style="margin:16px 0 0;font-weight:600"><span class="feat"><i data-lucide="map-pin"></i> Ubicación de ejemplo: Parque Metropolitano, Zapopan</span><span class="feat" style="opacity:.75"><i data-lucide="info"></i> Mapa de ejemplo con un lugar público. Aquí va la dirección de tu negocio.</span><span class="feat"><i data-lucide="phone"></i> 33 0000 0000</span></p>
+      </div>
+      <div class="card" style="padding:10px"><iframe loading="lazy" title="Mapa" src="https://maps.google.com/maps?q=Parque%20Metropolitano%20de%20Guadalajara&z=15&output=embed"></iframe></div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap"><span class="feat"><i data-lucide="pencil"></i> Papelería El Lápiz Feliz · Zapopan, Jalisco</span><span><a href="#">Facebook</a> · <a href="#">Instagram</a></span></div></footer>
+
+<div class="backdrop" id="backdrop"></div>
+<aside class="drawer" aria-label="Apartado">
+  <div class="d-head"><h3 style="font-size:28px">Tu apartado</h3><button class="x" id="close-cart" aria-label="Cerrar">×</button></div>
+  <div class="d-body">
+    <div id="lines"></div>
+    <label for="cname">Tu nombre</label><input id="cname" placeholder="¿A nombre de quién lo apartamos?">
+    <label for="when">¿Cuándo pasas?</label><select id="when"><option>Hoy</option><option>Mañana</option><option>Esta semana</option></select>
+  </div>
+  <div class="d-foot"><div class="total"><span>Total</span><span id="total">$0</span></div><button class="btn green" id="send" disabled>Apartar por WhatsApp</button></div>
+</aside>
+<div class="toast" id="toast"></div>
+
+<script>
+// ====== CONFIGURACIÓN DEL NEGOCIO ======
+const WHATSAPP = '5213300000000';
+const NAME = 'Papelería El Lápiz Feliz';
+const HOURS = {0:null,1:[8,20],2:[8,20],3:[8,20],4:[8,20],5:[8,20],6:[9,15]}; // null = cerrado
+const PRICES = {bn:{carta:1,oficio:1.5,doble:4}, color:{carta:5,oficio:6,doble:12}, foto:{carta:15,oficio:18,doble:30}};
+const BULK = {min:100, off:0.2};      // 20% de descuento desde 100 hojas totales
+const PRODUCTS = [
+  {id:'cuad',e:'notebook',n:'Cuaderno profesional',d:'100 hojas, cuadro chico',p:45},
+  {id:'cuad2',e:'notebook-text',n:'Cuaderno francés',d:'100 hojas, raya',p:32},
+  {id:'lap',e:'pencil',n:'Lápiz del 2',d:'Paquete con 3',p:18},
+  {id:'col',e:'palette',n:'Colores 24 piezas',d:'Madera, punta resistente',p:95},
+  {id:'pluma',e:'pen',n:'Plumas bicolor',d:'Azul y rojo, paquete con 4',p:38},
+  {id:'goma',e:'eraser',n:'Goma y sacapuntas',d:'Combo escolar',p:22},
+  {id:'tijera',e:'scissors',n:'Tijeras escolares',d:'Punta redonda',p:28},
+  {id:'pega',e:'brush',n:'Lápiz adhesivo',d:'40 g, no tóxico',p:30},
+  {id:'carp',e:'folder',n:'Folder tamaño carta',d:'Paquete con 10',p:35},
+  {id:'calc',e:'calculator',n:'Calculadora científica',d:'240 funciones',p:289},
+  {id:'mochila',e:'backpack',n:'Mochila escolar',d:'Con compartimento para laptop',p:420},
+  {id:'hojas',e:'file-text',n:'Paquete de hojas blancas',d:'500 hojas tamaño carta',p:115}
+];
+// =======================================
+
+const $=s=>document.querySelector(s), money=n=>'$'+n.toLocaleString('es-MX',{minimumFractionDigits:n%1?2:0,maximumFractionDigits:2});
+const wa=msg=>window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`,'_blank');
+
+// ---- cotizador ----
+let quote={};
+function calc(){
+  const f=new FormData($('#q')), tipo=f.get('tipo'), tam=f.get('tam');
+  const pages=Math.max(1,parseInt($('#pages').value)||1), copies=Math.max(1,parseInt($('#copies').value)||1);
+  const duplex=$('#duplex').checked, sheets=duplex?Math.ceil(pages/2):pages;
+  const unit=PRICES[tipo][tam]*(duplex?1.6:1);
+  const totalSheets=sheets*copies, prints=unit*totalSheets;
+  const disc=totalSheets>=BULK.min?prints*BULK.off:0;
+  const eng=$('#engar').checked?35*copies:0, mic=$('#micas').checked?15*copies:0;
+  const total=prints-disc+eng+mic;
+  const label={bn:'B/N',color:'Color',foto:'Foto'}[tipo]+' '+tam+(duplex?' doble cara':'');
+  quote={label,pages,copies,total};
+  $('#breakdown').innerHTML=
+    `<div><span>${totalSheets} hojas · ${label}</span><span>${money(prints)}</span></div>`+
+    (disc?`<div><span>Descuento mayoreo (−${BULK.off*100}%)</span><span>−${money(disc)}</span></div>`:'')+
+    (eng?`<div><span>Engargolado × ${copies}</span><span>${money(eng)}</span></div>`:'')+
+    (mic?`<div><span>Portada enmicada × ${copies}</span><span>${money(mic)}</span></div>`:'');
+  $('#qtotal').textContent=money(total);
+  $('#qnote').textContent=`Precio por hoja: ${money(unit)}`+(disc?' · ¡Ya tienes precio de mayoreo!':` · Mayoreo desde ${BULK.min} hojas`);
+}
+$('#q').addEventListener('input',calc);
+document.querySelectorAll('[data-d]').forEach(b=>b.onclick=()=>{const i=$('#pages');i.value=Math.max(1,(+i.value||0)+ +b.dataset.d);calc()});
+document.querySelectorAll('[data-c]').forEach(b=>b.onclick=()=>{const i=$('#copies');i.value=Math.max(1,(+i.value||0)+ +b.dataset.c);calc()});
+$('#q-send').onclick=()=>wa(`¡Hola ${NAME}! Quiero imprimir:\n\n• ${quote.pages} páginas, ${quote.copies} juego(s)\n• ${quote.label}`+($('#engar').checked?'\n• Engargolado':'')+($('#micas').checked?'\n• Portada enmicada':'')+`\n\nCotización en la página: *${money(quote.total)}*\nAhorita les mando los archivos 📎`);
+
+// ---- catálogo y apartado ----
+const cart={};
+function renderGrid(){
+  const q=$('#search').value.trim().toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'');
+  const list=PRODUCTS.filter(p=>(p.n+' '+p.d).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').includes(q));
+  $('#grid').innerHTML=list.length?list.map(p=>`<div class="prod"><div class="em"><i data-lucide="${p.e}"></i></div><h3>${p.n}</h3><p>${p.d}</p><div class="row"><span class="price">${money(p.p)}</span><button class="plus" aria-label="Apartar ${p.n}" onclick="add('${p.id}')">+</button></div></div>`).join('')
+    :`<p class="empty" style="grid-column:1/-1">No lo vemos en línea, pero seguro lo tenemos. <a href="#" onclick="wa('¡Hola! ¿Tienen '+$('#search').value.trim()+'?');return false">Pregúntanos por WhatsApp</a></p>`;
+}
+function add(id){cart[id]=(cart[id]||0)+1;render();toast('Agregado al apartado')}
+function change(id,d){cart[id]+=d;if(cart[id]<=0)delete cart[id];render()}
+function render(){
+  const ids=Object.keys(cart), P=id=>PRODUCTS.find(p=>p.id===id);
+  const total=ids.reduce((s,id)=>s+P(id).p*cart[id],0);
+  $('#count').textContent=ids.reduce((s,id)=>s+cart[id],0);
+  $('#total').textContent=money(total);
+  $('#send').disabled=!ids.length;
+  $('#lines').innerHTML=ids.length?ids.map(id=>`<div class="line"><div class="n">${P(id).n}<small>${money(P(id).p)} c/u</small></div><div class="qty"><button onclick="change('${id}',-1)">−</button>${cart[id]}<button onclick="change('${id}',1)">+</button></div></div>`).join(''):'<p class="empty">Aún no apartas nada</p>';
+}
+$('#send').onclick=()=>{
+  const ids=Object.keys(cart), P=id=>PRODUCTS.find(p=>p.id===id);
+  let m=`¡Hola ${NAME}! Quiero apartar:\n\n`+ids.map(id=>`• ${cart[id]} × ${P(id).n} (${money(P(id).p*cart[id])})`).join('\n');
+  m+=`\n\n*Total: ${money(ids.reduce((s,id)=>s+P(id).p*cart[id],0))}*\nPaso: ${$('#when').value}`;
+  if($('#cname').value.trim())m+=`\nA nombre de: ${$('#cname').value.trim()}`;
+  wa(m);
+};
+$('#search').addEventListener('input',renderGrid);
+$('#list-btn').onclick=()=>wa(`¡Hola ${NAME}! Quiero que me surtan una lista escolar.\nAlumno(a): \nGrado: \n\nAhorita les mando la foto de la lista 📸`);
+
+// ---- horario ----
+(function(){
+  const days=['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'];
+  const now=new Date(new Date().toLocaleString('en-US',{timeZone:'America/Mexico_City'}));
+  const d=now.getDay(),h=now.getHours()+now.getMinutes()/60,t=HOURS[d];
+  const open=t&&h>=t[0]&&h<t[1];
+  $('#dot').classList.toggle('closed',!open);
+  $('#status-text').textContent=open?`Abierto · cierra ${t[1]}:00`:'Cerrado ahora';
+  $('#hours').innerHTML=[1,2,3,4,5,6,0].map(i=>`<div class="${i===d?'today':''}"><span>${days[i]}</span><span>${HOURS[i]?HOURS[i][0]+':00 – '+HOURS[i][1]+':00':'Cerrado'}</span></div>`).join('');
+})();
+
+let tt;function toast(s){$('#toast').textContent=s;$('#toast').classList.add('show');clearTimeout(tt);tt=setTimeout(()=>$('#toast').classList.remove('show'),1500)}
+$('#open-cart').onclick=()=>document.body.classList.add('open');
+$('#close-cart').onclick=$('#backdrop').onclick=()=>document.body.classList.remove('open');
+calc();renderGrid();render();
+</script>
+<script>(function(){let q=0;const run=()=>{q=0;if(window.lucide&&document.querySelector('i[data-lucide]'))lucide.createIcons()};run();new MutationObserver(()=>{if(!q)q=requestAnimationFrame(run)}).observe(document.body,{childList:true,subtree:true})})();</script>
+</body>
+</html>

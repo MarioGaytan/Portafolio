@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mario Gaytán · Desarrollo web</title>
+<meta name="description" content="Desarrollador web full-stack en Guadalajara. Páginas web, sistemas a la medida y automatización para negocios.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f7f7f4; --surface:#ffffff; --surface-2:#efefea; --text:#16181d; --muted:#5b616e;
+  --border:#e1e1da; --accent:#1f7a5a; --accent-ink:#ffffff; --accent-soft:#e3f1ea;
+  --shadow:0 1px 2px rgba(0,0,0,.04),0 8px 24px rgba(0,0,0,.06);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0f1114; --surface:#171a1f; --surface-2:#1e2228; --text:#eceef1; --muted:#9aa1ad;
+    --border:#2a2f37; --accent:#4cc79a; --accent-ink:#0b1410; --accent-soft:#16291f;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.35);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0f1114; --surface:#171a1f; --surface-2:#1e2228; --text:#eceef1; --muted:#9aa1ad;
+  --border:#2a2f37; --accent:#4cc79a; --accent-ink:#0b1410; --accent-soft:#16291f;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 16px}
+.mono{font-family:"JetBrains Mono",ui-monospace,monospace}
+
+/* nav */
+nav{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;gap:12px}
+.logo{font-weight:700;text-decoration:none;letter-spacing:-.01em}
+.logo span{color:var(--accent)}
+.links{display:flex;gap:20px;align-items:center}
+.links a{text-decoration:none;color:var(--muted);font-size:15px}
+.links a:hover{color:var(--text)}
+.theme{display:grid;place-items:center;background:none;border:1px solid var(--border);color:var(--text);border-radius:8px;width:36px;height:36px;cursor:pointer;font-size:16px}
+@media (max-width:640px){.links a:not(.cta-sm){display:none}}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:10px;font-weight:600;text-decoration:none;border:1px solid transparent;font-size:15px}
+.btn-primary{background:var(--accent);color:var(--accent-ink)}
+.btn-primary:hover{filter:brightness(1.07)}
+.btn-ghost{border-color:var(--border);background:var(--surface)}
+.btn-ghost:hover{border-color:var(--muted)}
+.cta-sm{background:var(--accent);color:var(--accent-ink)!important;padding:7px 14px;border-radius:8px;font-weight:600}
+
+/* hero */
+.hero{padding:88px 0 64px}
+.tag{display:inline-block;font-size:13px;color:var(--accent);background:var(--accent-soft);padding:4px 10px;border-radius:99px;font-weight:600;margin-bottom:20px}
+h1{font-size:clamp(34px,6vw,56px);line-height:1.08;letter-spacing:-.03em;margin:0 0 20px;max-width:16ch}
+.lead{font-size:clamp(17px,2.2vw,20px);color:var(--muted);max-width:58ch;margin:0 0 32px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+.facts{display:flex;gap:32px;flex-wrap:wrap;margin-top:48px;color:var(--muted);font-size:14px}
+.facts b{display:block;color:var(--text);font-size:15px}
+
+section{padding:64px 0;scroll-margin-top:60px}
+.eyebrow{font-size:13px;font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:.08em;margin:0 0 8px}
+h2{font-size:clamp(26px,4vw,36px);letter-spacing:-.02em;line-height:1.15;margin:0 0 12px}
+.sub{color:var(--muted);max-width:60ch;margin:0 0 36px}
+
+/* services */
+.grid{display:grid;gap:16px;grid-template-columns:repeat(4,1fr)}
+@media (max-width:960px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.grid{grid-template-columns:1fr}}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:24px}
+.card h3{margin:12px 0 6px;font-size:18px}
+.card p{margin:0;color:var(--muted);font-size:15px}
+.icon{width:40px;height:40px;border-radius:10px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center}
+.icon svg{width:22px;height:22px}
+
+/* featured project */
+.feature{background:var(--surface);border:1px solid var(--border);border-radius:18px;overflow:hidden;box-shadow:var(--shadow)}
+.feature-main{display:grid;grid-template-columns:1.35fr 1fr}
+.feature-img{background:var(--surface-2);border-right:1px solid var(--border)}
+.feature-img img{width:100%;height:100%;object-fit:cover;object-position:top left;aspect-ratio:16/10}
+.feature-body{padding:32px}
+.feature-body h3{font-size:26px;margin:6px 0 10px;letter-spacing:-.02em}
+.feature-body p{color:var(--muted);margin:0 0 16px}
+.feature-body ul{margin:0 0 20px;padding-left:18px;color:var(--muted);font-size:15px}
+.feature-body li{margin:4px 0}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:24px}
+.chip{font-size:12px;padding:3px 9px;border-radius:6px;background:var(--surface-2);border:1px solid var(--border);color:var(--muted)}
+.thumbs{display:grid;grid-template-columns:repeat(6,1fr);gap:1px;background:var(--border);border-top:1px solid var(--border)}
+.thumbs button{all:unset;cursor:pointer;background:var(--surface-2);position:relative}
+.thumbs img{aspect-ratio:16/10;object-fit:cover;object-position:top left;width:100%;opacity:.75;transition:opacity .15s}
+.thumbs button:hover img,.thumbs button[aria-current="true"] img{opacity:1}
+.thumbs button[aria-current="true"]::after{content:"";position:absolute;inset:0;box-shadow:inset 0 -3px 0 var(--accent)}
+.caption{font-size:13px;color:var(--muted);padding:10px 16px;border-top:1px solid var(--border);min-height:42px}
+@media (max-width:820px){
+  .feature-main{grid-template-columns:1fr}
+  .feature-img{border-right:0;border-bottom:1px solid var(--border)}
+  .thumbs{grid-template-columns:repeat(3,1fr)}
+}
+
+/* upcoming */
+.grid.upcoming{margin-top:20px;grid-template-columns:repeat(3,1fr)}
+@media (max-width:860px){.grid.upcoming{grid-template-columns:1fr}}
+.proj{display:flex;flex-direction:column}
+.proj .status{font-size:12px;font-weight:600;color:var(--muted);margin-bottom:10px}
+.proj .status.on{color:var(--accent)}
+.proj h3{margin:0 0 6px}
+
+/* about */
+.about{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+@media (max-width:820px){.about{grid-template-columns:1fr}}
+.about p{color:var(--muted);margin:0 0 14px}
+.stack{display:grid;gap:14px}
+.stack div{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px 18px}
+.stack b{display:block;font-size:13px;color:var(--muted);font-weight:500;margin-bottom:6px}
+
+/* demos */
+.demos{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+@media (max-width:760px){.demos{grid-template-columns:1fr}}
+.demo-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;transition:transform .15s,box-shadow .15s}
+.demo-card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.preview{position:relative;aspect-ratio:16/10;overflow:hidden;background:var(--surface-2);border-bottom:1px solid var(--border);display:block}
+.preview iframe{position:absolute;top:0;left:0;width:300%;height:300%;transform:scale(.3334);transform-origin:0 0;border:0;pointer-events:none}
+.preview .open{position:absolute;inset:0;display:grid;place-items:center;background:rgba(0,0,0,0);color:#fff;font-weight:600;opacity:0;transition:.15s}
+.preview:hover .open,.preview:focus-visible .open{opacity:1;background:rgba(0,0,0,.45)}
+.demo-body{padding:20px;display:flex;flex-direction:column;gap:10px;flex:1}
+.demo-body h3{margin:0;font-size:19px}
+.demo-body p{margin:0;color:var(--muted);font-size:15px}
+.feats{display:flex;flex-wrap:wrap;gap:6px}
+.feats span{display:inline-flex;align-items:center;gap:5px;font-size:12px;padding:3px 9px;border-radius:6px;background:var(--accent-soft);color:var(--accent);font-weight:600}
+.demo-actions{display:flex;gap:10px;margin-top:auto;padding-top:6px;flex-wrap:wrap}
+.demo-actions .btn{padding:9px 14px;font-size:14px}
+.lucide{width:1em;height:1em;flex:none}
+.icon .lucide{width:22px;height:22px}
+
+/* process */
+.steps{counter-reset:s;display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+.step{counter-increment:s;padding:20px;border-left:2px solid var(--accent);background:var(--surface);border-radius:0 12px 12px 0}
+.step::before{content:"0" counter(s);font-family:"JetBrains Mono",monospace;color:var(--accent);font-size:13px}
+.step h3{margin:4px 0 4px;font-size:17px}
+.step p{margin:0;color:var(--muted);font-size:14px}
+
+/* contact */
+.contact{background:var(--text);color:var(--bg);border-radius:20px;padding:48px 32px;text-align:center}
+.contact h2{color:var(--bg)}
+.contact p{opacity:.75;max-width:50ch;margin:0 auto 28px}
+.contact .btn-ghost{background:transparent;color:var(--bg);border-color:color-mix(in srgb,var(--bg) 35%,transparent)}
+.contact .hero-actions{justify-content:center}
+footer{padding:32px 0 48px;color:var(--muted);font-size:14px;text-align:center}
+
+/* lightbox */
+dialog{border:0;padding:0;background:transparent;max-width:min(1200px,94vw)}
+dialog::backdrop{background:rgba(0,0,0,.8)}
+dialog img{border-radius:10px;max-height:88vh;width:auto;margin:0 auto}
+</style>
+<script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="logo" href="#">mario<span>.</span>gaytán</a>
+    <div class="links">
+      <a href="#servicios">Servicios</a>
+      <a href="#proyectos">Proyectos</a>
+      <a href="#demos">Demos</a>
+      <a href="#sobre-mi">Sobre mí</a>
+      <a class="cta-sm" href="#contacto">Contacto</a>
+      <button class="theme" id="theme" aria-label="Cambiar tema"><i data-lucide="sun-moon"></i></button>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="tag">Disponible para proyectos</span>
+    <h1>Hago páginas web y sistemas para negocios.</h1>
+    <p class="lead">Soy Mario, estudiante de ingeniería en Guadalajara. Programo páginas, sistemas de inventario, citas y pedidos, y también le doy mantenimiento a lo que ya tienes.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#contacto">Cotiza tu proyecto →</a>
+      <a class="btn btn-ghost" href="#demos">Ver demos en vivo</a>
+    </div>
+    <div class="facts">
+      <div><b>Ingeniería Cibernética</b>Universidad Marista de Guadalajara</div>
+      <div><b>Full-stack</b>React · Node · Python · PostgreSQL</div>
+      <div><b>Doy factura</b>Persona física con RFC</div>
+    </div>
+  </div>
+</header>
+
+<section id="servicios">
+  <div class="wrap">
+    <p class="eyebrow">Servicios</p>
+    <h2>¿En qué te puedo ayudar?</h2>
+    <p class="sub">Desde una página sencilla con tu menú y tu WhatsApp hasta un sistema con usuarios y base de datos.</p>
+    <div class="grid">
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 9h18M8 21h8"/></svg></div>
+        <h3>Páginas web</h3>
+        <p>Tu negocio en internet, que se vea bien en el celular y que tus clientes te puedan escribir directo por WhatsApp.</p>
+      </div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h10"/></svg></div>
+        <h3>Sistemas a la medida</h3>
+        <p>Inventarios, agenda de citas, cotizadores o lo que necesites llevar en orden.</p>
+      </div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8z"/></svg></div>
+        <h3>Automatización</h3>
+        <p>Si cada semana haces lo mismo a mano en Excel, casi seguro se puede automatizar.</p>
+      </div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6l-8-3z"/></svg></div>
+        <h3>Seguridad web</h3>
+        <p>Reviso que tu página no tenga huecos de seguridad y que los datos de tus clientes estén bien cuidados.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="proyectos">
+  <div class="wrap">
+    <p class="eyebrow">Proyectos</p>
+    <h2>Trabajo reciente</h2>
+    <p class="sub">Proyectos que hice por mi cuenta, desde el diseño hasta subirlos a internet.</p>
+
+    <article class="feature">
+      <div class="feature-main">
+        <div class="feature-img"><img id="main-shot" src="img/raices/01-editor.webp" alt="Editor de Raíces con la ficha de una persona abierta"></div>
+        <div class="feature-body">
+          <span class="tag">Aplicación web full-stack</span>
+          <h3>Raíces · árboles genealógicos</h3>
+          <p>Una app para armar el árbol de tu familia arrastrando tarjetas con foto. Lo puedes compartir con tus familiares e imprimir, desde tamaño carta hasta póster.</p>
+          <ul>
+            <li>Calcula solo los parentescos: primos, cuñados, suegros, etc.</li>
+            <li>Acomoda el árbol automáticamente de tres formas distintas</li>
+            <li>Varias personas pueden editarlo al mismo tiempo</li>
+            <li>Inicio de sesión seguro y registro solo por invitación</li>
+          </ul>
+          <div class="chips">
+            <span class="chip">TypeScript</span><span class="chip">React</span><span class="chip">Node.js</span><span class="chip">Fastify</span><span class="chip">PostgreSQL</span><span class="chip">Docker</span><span class="chip">Cloudflare R2</span>
+          </div>
+          <a class="btn btn-ghost" href="https://github.com/MarioGaytan" target="_blank" rel="noopener">Ver en GitHub ↗</a>
+        </div>
+      </div>
+      <div class="thumbs" id="thumbs"></div>
+      <div class="caption" id="caption"></div>
+    </article>
+
+    <div class="grid upcoming">
+      <div class="card proj">
+        <span class="status on">● En desarrollo</span>
+        <h3>Sistema de citas</h3>
+        <p>Para barberías y consultorios: el cliente aparta su hora y el dueño ve su agenda del día.</p>
+      </div>
+      <div class="card proj">
+        <span class="status">○ Próximamente</span>
+        <h3>Punto de venta e inventario</h3>
+        <p>Para tiendas de abarrotes: cobrar, llevar el inventario y seguir vendiendo aunque se vaya el internet.</p>
+      </div>
+      <div class="card proj">
+        <span class="status">○ Próximamente</span>
+        <h3>Escáner de seguridad web</h3>
+        <p>Le das la dirección de una página y te dice qué tiene mal configurado y cómo arreglarlo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="demos">
+  <div class="wrap">
+    <p class="eyebrow">Demos en vivo</p>
+    <h2>Páginas para negocios locales</h2>
+    <p class="sub">Hice estas cuatro páginas de ejemplo con negocios inventados. Puedes probarlas: los pedidos y las citas se le mandan por WhatsApp al dueño.</p>
+    <div class="demos">
+      <article class="demo-card">
+        <a class="preview" href="demos/cafeteria.html" target="_blank" rel="noopener" aria-label="Abrir demo de cafetería"><iframe src="demos/cafeteria.html" loading="lazy" tabindex="-1" title="Vista previa cafetería"></iframe><span class="open"><span><i data-lucide="external-link"></i> Abrir demo</span></span></a>
+        <div class="demo-body">
+          <h3>Cafetería</h3>
+          <p>El cliente arma su pedido desde el menú y lo manda por WhatsApp para pasar a recogerlo.</p>
+          <div class="feats"><span><i data-lucide="shopping-bag"></i> Pedidos</span><span><i data-lucide="clock"></i> Abierto ahora</span><span><i data-lucide="map-pin"></i> Mapa</span></div>
+          <div class="demo-actions"><a class="btn btn-primary" href="demos/cafeteria.html" target="_blank" rel="noopener"><i data-lucide="external-link"></i> Ver demo</a></div>
+        </div>
+      </article>
+      <article class="demo-card">
+        <a class="preview" href="demos/taqueria.html" target="_blank" rel="noopener" aria-label="Abrir demo de taquería"><iframe src="demos/taqueria.html" loading="lazy" tabindex="-1" title="Vista previa taquería"></iframe><span class="open"><span><i data-lucide="external-link"></i> Abrir demo</span></span></a>
+        <div class="demo-body">
+          <h3>Taquería con envío a domicilio</h3>
+          <p>Pedidos a domicilio: escoge carne y tortilla, ve cuánto cuesta el envío a su colonia y cómo va a pagar.</p>
+          <div class="feats"><span><i data-lucide="bike"></i> Domicilio</span><span><i data-lucide="sliders-horizontal"></i> Opciones por platillo</span><span><i data-lucide="banknote"></i> Cambio</span></div>
+          <div class="demo-actions"><a class="btn btn-primary" href="demos/taqueria.html" target="_blank" rel="noopener"><i data-lucide="external-link"></i> Ver demo</a></div>
+        </div>
+      </article>
+      <article class="demo-card">
+        <a class="preview" href="demos/papeleria.html" target="_blank" rel="noopener" aria-label="Abrir demo de papelería"><iframe src="demos/papeleria.html" loading="lazy" tabindex="-1" title="Vista previa papelería"></iframe><span class="open"><span><i data-lucide="external-link"></i> Abrir demo</span></span></a>
+        <div class="demo-body">
+          <h3>Papelería y centro de copiado</h3>
+          <p>El cliente ve cuánto le sale su impresión, busca productos y manda su lista escolar.</p>
+          <div class="feats"><span><i data-lucide="calculator"></i> Cotizador</span><span><i data-lucide="search"></i> Buscador</span><span><i data-lucide="clipboard-list"></i> Listas</span></div>
+          <div class="demo-actions"><a class="btn btn-primary" href="demos/papeleria.html" target="_blank" rel="noopener"><i data-lucide="external-link"></i> Ver demo</a></div>
+        </div>
+      </article>
+      <article class="demo-card">
+        <a class="preview" href="demos/barberia.html" target="_blank" rel="noopener" aria-label="Abrir demo de barbería"><iframe src="demos/barberia.html" loading="lazy" tabindex="-1" title="Vista previa barbería"></iframe><span class="open"><span><i data-lucide="external-link"></i> Abrir demo</span></span></a>
+        <div class="demo-body">
+          <h3>Barbería con agenda de citas</h3>
+          <p>El cliente escoge servicio, barbero y una hora libre, y confirma por WhatsApp.</p>
+          <div class="feats"><span><i data-lucide="calendar-check"></i> Citas</span><span><i data-lucide="users"></i> Por barbero</span><span><i data-lucide="gift"></i> Lealtad</span></div>
+          <div class="demo-actions"><a class="btn btn-primary" href="demos/barberia.html" target="_blank" rel="noopener"><i data-lucide="external-link"></i> Ver demo</a></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="sobre-mi">
+  <div class="wrap about">
+    <div>
+      <p class="eyebrow">Sobre mí</p>
+      <h2>Un poco sobre mí</h2>
+      <p>Estudio Ingeniería Cibernética y Sistemas Computacionales en la Universidad Marista de Guadalajara y salgo en diciembre de 2026. Lo que más me gusta es la ciberseguridad, por eso cuido mucho cómo se guardan los datos.</p>
+      <p>En la universidad dirigí el desarrollo de una red social para estudiantes y me tocó la parte de usuarios y seguridad. Ahora hago proyectos completos por mi cuenta.</p>
+      <p>Antes de empezar te paso la cotización por escrito, vas viendo los avances y al final te doy factura.</p>
+    </div>
+    <div class="stack">
+      <div><b>Frontend</b>React · TypeScript · HTML/CSS · diseño adaptable</div>
+      <div><b>Backend</b>Node.js · Fastify · Python · Django · APIs REST</div>
+      <div><b>Datos</b>PostgreSQL · SQLite · Firebase</div>
+      <div><b>Infraestructura</b>Docker · Railway · Cloudflare · GitHub Actions</div>
+      <div><b>Seguridad</b>Autenticación · sesiones seguras · CSP · protección de datos</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow">Cómo trabajo</p>
+    <h2>Cómo trabajamos</h2>
+    <p class="sub">Normalmente es así:</p>
+    <div class="steps">
+      <div class="step"><h3>Platicamos</h3><p>Me cuentas qué necesitas. La plática no tiene costo.</p></div>
+      <div class="step"><h3>Cotización</h3><p>Te mando por escrito qué incluye, cuánto cuesta y cuándo te lo entrego. Empiezo con 50% de anticipo.</p></div>
+      <div class="step"><h3>Desarrollo</h3><p>Te voy enseñando cómo va para que me digas qué cambiar.</p></div>
+      <div class="step"><h3>Entrega</h3><p>Lo subo a internet, te enseño a usarlo y quedo al pendiente.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="contacto">
+  <div class="wrap">
+    <div class="contact">
+      <h2>¿Tienes algo en mente?</h2>
+      <p>Escríbeme y lo platicamos. Normalmente contesto el mismo día.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="mailto:mario.arturo.go@gmail.com?subject=Cotizaci%C3%B3n%20de%20proyecto">Enviar correo</a>
+        <a class="btn btn-ghost" href="https://github.com/MarioGaytan" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>© 2026 Mario Arturo Gaytán Orozco · Guadalajara, Jalisco</footer>
+
+<dialog id="lightbox"><img id="lightbox-img" alt=""></dialog>
+
+<script>
+const shots=[
+  ["01-editor","Editor: lienzo infinito con la ficha de cada persona."],
+  ["02-arbol","Modo Árbol: ancestros sobre un tronco y descendientes en ramas."],
+  ["05-rastreo","Rastreo: el camino que une a una persona con la persona central."],
+  ["04-diseno","Diseño: vista previa en vivo y personalización de cada color."],
+  ["06-exportar","Exportación: pósters y hojas listos para imprimir."],
+  ["07-compartir","Compartir: editores y enlace público de solo lectura."]
+];
+const main=document.getElementById('main-shot'),cap=document.getElementById('caption'),thumbs=document.getElementById('thumbs');
+shots.forEach(([f,t],i)=>{
+  const b=document.createElement('button');
+  b.innerHTML=`<img src="img/raices/${f}.webp" alt="${t}" loading="lazy">`;
+  b.onclick=()=>select(i);
+  thumbs.appendChild(b);
+});
+function select(i){
+  main.src=`img/raices/${shots[i][0]}.webp`;main.alt=shots[i][1];cap.textContent=shots[i][1];
+  [...thumbs.children].forEach((b,j)=>b.setAttribute('aria-current',i===j));
+}
+select(0);
+const lb=document.getElementById('lightbox'),lbi=document.getElementById('lightbox-img');
+main.style.cursor='zoom-in';
+main.onclick=()=>{lbi.src=main.src;lbi.alt=main.alt;lb.showModal()};
+lb.onclick=()=>lb.close();
+
+const root=document.documentElement,btn=document.getElementById('theme');
+try{const s=localStorage.getItem('theme');if(s)root.dataset.theme=s}catch(e){}
+btn.onclick=()=>{
+  const dark=root.dataset.theme?root.dataset.theme==='dark':matchMedia('(prefers-color-scheme: dark)').matches;
+  root.dataset.theme=dark?'light':'dark';
+  try{localStorage.setItem('theme',root.dataset.theme)}catch(e){}
+};
+if(window.lucide)lucide.createIcons();
+</script>
+</body>
+</html>
